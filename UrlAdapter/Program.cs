@@ -11,7 +11,7 @@ namespace UrlAdapter
             {
                 Console.WriteLine("Enter url: ");
                 input = Console.ReadLine();
-                Console.WriteLine((input.Remove(0, input.LastIndexOf("http")).Replace("%3A", ":").Replace("%2F", "/")).Remove(input.IndexOf(".html")+5));
+                Console.WriteLine((input.Substring(input.LastIndexOf("http"), input.IndexOf(".html") + 5 - input.LastIndexOf("http"))).Replace("%3A", ":").Replace("%2F", "/"));
                 Console.WriteLine("Press enter to continue or q to quit");
             } while (Console.ReadLine() != "q");
         }
