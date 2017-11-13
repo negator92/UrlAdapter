@@ -2,14 +2,18 @@
 
 namespace UrlAdapter
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            foreach (string a in args)
+            string input;
+            do
             {
-                Console.WriteLine(a.Remove(0, a.LastIndexOf("http")).Replace("%3A", ":").Replace("%2F", "/"));
-            }
+                Console.WriteLine("Enter url: ");
+                input = Console.ReadLine();
+                Console.WriteLine((input.Remove(0, input.LastIndexOf("http")).Replace("%3A", ":").Replace("%2F", "/")).Remove(input.IndexOf(".html")+5));
+                Console.WriteLine("Press enter to continue or q to quit");
+            } while (Console.ReadLine() != "q");
         }
     }
 }
